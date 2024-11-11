@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עריכת פרופיל</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            direction: rtl;
+        }
+
+        h1 {
+            color: #49124e;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #49124e;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #f8f9fa;
+            color: #49124e;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+
+        button[type="submit"] {
+            background-color: #49124e;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin: 0 auto;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #49124e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>עריכת פרופיל</h1>
+        <form id="profileForm" onsubmit="saveProfile(event)">
+            
+            <label for="name">שם:</label>
+            <input type="text" id="name" required>
+            
+            <label for="email">אימייל:</label>
+            <input type="email" id="email" required>
+            
+            <label for="specialty">התמחות:</label>
+            <input type="text" id="specialty" required>
+            
+            <label for="bio">ביוגרפיה:</label>
+            <textarea id="bio" rows="4" required></textarea>
+
+            <label for="languages">שפות:</label>
+            <input type="text" id="specialty" required>
+            
+            <label for="link">לינק לאתר אישי:</label>
+            <input type="text" id="link">
+            
+            <label for="attachment">צרף קבצים:</label>
+            <input type="file" id="attachment">
+            
+            <button type="submit">שמור</button>
+        </form>
+    </div>
+
+    <script>
+      function saveProfile(event) {
+    event.preventDefault(); 
+
+   
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const specialty = document.getElementById('specialty').value;
+    const bio = document.getElementById('bio').value;
+    const languages = document.getElementById('languages').value;
+    const link = document.getElementById('link').value;
+
+    
+    const userData = { name, email, specialty, bio, languages, link };
+
+        localStorage.setItem('userData', JSON.stringify(userData));
+
+    
+    window.location.href = 'lawyer_profile.html';
+}
+    </script>
+</body>
+</html>

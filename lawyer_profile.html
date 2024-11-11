@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פרופיל עורך דין</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: right;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            direction: rtl;
+        }
+
+        h1 {
+            color: #49124e;
+            margin-bottom: 30px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #49124e;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 0 auto; 
+        }
+
+        button:hover {
+            background-color: #3b0d3d;
+        }
+
+        .profile-section {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        .profile-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>פרופיל עורך דין</h1>
+        <div id="profileDetails">
+        </div>
+    </div>
+    <button onclick="redirectToEditProfile()">ערוך פרופיל</button>
+</div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userData = JSON.parse(localStorage.getItem('userData'));
+
+            if (userData) {
+                const profileDetails = document.getElementById('profileDetails');
+
+                const nameParagraph = document.createElement('p');
+                nameParagraph.textContent = 'שם: ' + userData.name;
+                profileDetails.appendChild(nameParagraph);
+
+                const emailParagraph = document.createElement('p');
+                emailParagraph.textContent = 'אימייל: ' + userData.email;
+                profileDetails.appendChild(emailParagraph);
+
+                const specialtyParagraph = document.createElement('p');
+                specialtyParagraph.textContent = 'התמחות: ' + userData.specialty;
+                profileDetails.appendChild(specialtyParagraph);
+
+                const bioParagraph = document.createElement('p');
+                bioParagraph.textContent = 'ביוגרפיה: ' + userData.bio;
+                profileDetails.appendChild(bioParagraph);
+
+                const languagesParagraph = document.createElement('p');
+                languagesParagraph.textContent = 'שפות: ' + userData.languages;
+                profileDetails.appendChild(languagesParagraph);
+
+                const linkAnchor = document.createElement('a');
+                linkAnchor.textContent = 'לינק לאתר אישי';
+                linkAnchor.href = userData.link;
+                profileDetails.appendChild(linkAnchor);
+            }
+        });
+        function redirectToEditProfile() {
+            window.location.href = 'lawyer_personal_area.html'; // Link to the profile editing page
+        }
+    </script>
+</body>
+</html>
